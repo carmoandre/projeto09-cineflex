@@ -10,7 +10,7 @@ export default function Success() {
     const cpfNumber = "123.456.789-10";
 
     return (
-        <div className="screen">
+        <div className="successScreen">
             <div className="title">
                 <p>Pedido feito</p>
                 <p>com sucesso!</p>

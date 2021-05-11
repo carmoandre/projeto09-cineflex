@@ -1,13 +1,12 @@
-.screen {
+.successScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.title {
+.successScreen .title {
     color: #247a6b;
     font-weight: 700;
-    line-height: 28px;
 }
 
 .info {
@@ -15,6 +14,7 @@
     height: 110px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     font-size: 22px;
     line-height: 26px;
@@ -33,4 +33,10 @@
 button {
     width: 225px;
     margin-top: 62px;
+}
+
+@media (max-width: 1000px) {
+    .info {
+        align-items: flex-start;
+    }
 }
