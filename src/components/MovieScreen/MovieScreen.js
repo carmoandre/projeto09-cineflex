@@ -1,5 +1,7 @@
-import "./styles.css";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
+
+import "./styles.css";
 
 export default function Movie() {
     const dateOne = {
@@ -37,6 +39,7 @@ export default function Movie() {
                     </Link>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

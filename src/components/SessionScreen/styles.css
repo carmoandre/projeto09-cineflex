@@ -1,0 +1,30 @@
+.seatOptions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+    width: 374px;
+}
+
+.seat {
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.available {
+    background: #c3cfd9;
+    border: 1px solid #808f9d;
+}
+
+.unavailable {
+    background: #fbe192;
+    border: 1px solid #f7c52b;
+}
+
+.selected {
+    background: #8dd7cf;
+    border: 1px solid #1aae9e;
+}

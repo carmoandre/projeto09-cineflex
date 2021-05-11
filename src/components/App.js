@@ -1,9 +1,9 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./Header/Header";
-import Home from "./Home/Home";
-import Movie from "./Movie/Movie";
-import Session from "./Session/Session";
-import Success from "./Success/Success";
+import HomeScreen from "./HomeScreen/HomeScreen";
+import MovieScreen from "./MovieScreen/MovieScreen";
+import SessionScreen from "./SessionScreen/SessionScreen";
+import SuccessScreen from "./SuccessScreen/SuccessScreen";
 
 export default function App() {
     return (
@@ -11,16 +11,16 @@ export default function App() {
             <Header />
             <Switch>
                 <Route path="/" exact>
-                    <Home />
+                    <HomeScreen />
                 </Route>
-                <Route path="/filme/" exact>
-                    <Movie />
+                <Route path="/filme/:movieID" exact>
+                    <MovieScreen />
                 </Route>
                 <Route path="/sessao/" exact>
-                    <Session />
+                    <SessionScreen />
                 </Route>
                 <Route path="/sucesso" exact>
-                    <Success />
+                    <SuccessScreen />
                 </Route>
             </Switch>
         </BrowserRouter>
