@@ -1,0 +1,36 @@
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: #247a6b;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.info {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 26px;
+    padding: 0 28px;
+    color: #293845;
+    margin-bottom: 30px;
+}
+
+.info p:first-child {
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+button {
+    width: 225px;
+    margin-top: 62px;
+}
