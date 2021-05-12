@@ -1,6 +1,9 @@
+import Footer from "../Footer/Footer";
 import "./styles.css";
 
-export default function Session() {
+export default function SessionScreen(props) {
+    const { chosen } = props;
+
     const seats = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     return (
         <>
@@ -9,7 +12,7 @@ export default function Session() {
             </div>
             <div className="seatOptions">
                 {seats.map((number) => (
-                    <div id={number} className="seat available">
+                    <div key={number} className="seat available">
                         {number}
                     </div>
                 ))}
@@ -25,6 +28,7 @@ export default function Session() {
                     <div className="seat unavailable"></div>
                 </div>
             </div>
+            <Footer chosen={chosen} />
         </>
     );
 }

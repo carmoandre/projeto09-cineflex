@@ -1,16 +1,17 @@
 import "./styles.css";
 
-export default function Footer() {
-    const movieIMG = "url";
-    const movieName = "Enola Holmes";
-    const chosenDate = "Quinta-feira - 15:00";
+export default function Footer(props) {
+    const { chosen } = props;
     return (
         <>
+            <div className="distanceFooter"></div>
             <div className="footer">
-                <img url=""></img>
-                <div>
-                    <p>{movieName}</p>
-                    <p>{chosenDate}</p>
+                <div className="poster">
+                    <img src={chosen.posterURL} alt=""></img>
+                </div>
+                <div className="chosenInfo">
+                    <p>{chosen.movieTitle}</p>
+                    <p>{chosen.weekdayAndDate}</p>
                 </div>
             </div>
         </>

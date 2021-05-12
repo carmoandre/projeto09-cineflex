@@ -4,7 +4,8 @@ import axios from "axios";
 
 import "./styles.css";
 
-export default function Home() {
+export default function HomeScreen(props) {
+    const { setChosen } = props;
     const [movies, setMovies] = useState(null);
 
     useEffect(() => {
@@ -23,6 +24,15 @@ export default function Home() {
         });
     }, []);
 
+    function setChosenMovie(movie) {
+        const newChosenData = {
+            posterURL: movie.posterURL,
+            movieTitle: movie.title,
+            weekdayAndDate: "",
+        };
+        setChosen(newChosenData);
+    }
+
     if (movies === null) {
         return "Loading...";
     }
@@ -37,7 +47,11 @@ export default function Home() {
                     return (
                         <div key={movie.id} className="movie">
                             <Link to={`/filme/${movie.id}`}>
-                                <img src={movie.posterURL} />
+                                <img
+                                    onClick={() => setChosenMovie(movie)}
+                                    src={movie.posterURL}
+                                    alt=""
+                                />
                             </Link>
                         </div>
                     );

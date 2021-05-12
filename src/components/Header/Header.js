@@ -6,7 +6,7 @@ export default function Header() {
             <div className="header">
                 <p>CINEFLEX</p>
             </div>
-            <div className="distance"></div>
+            <div className="distanceHeader"></div>
         </>
     );
 }
