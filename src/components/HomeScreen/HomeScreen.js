@@ -5,7 +5,7 @@ import axios from "axios";
 import "./styles.css";
 
 export default function HomeScreen(props) {
-    const { setChosen } = props;
+    const { chosen, setChosen } = props;
     const [movies, setMovies] = useState(null);
 
     useEffect(() => {
@@ -25,11 +25,7 @@ export default function HomeScreen(props) {
     }, []);
 
     function setChosenMovie(movie) {
-        const newChosenData = {
-            posterURL: movie.posterURL,
-            movieTitle: movie.title,
-            weekdayAndDate: "",
-        };
+        const newChosenData = { ...chosen, movieTitle: movie.title };
         setChosen(newChosenData);
     }
 

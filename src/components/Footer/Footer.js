@@ -1,17 +1,17 @@
 import "./styles.css";
 
 export default function Footer(props) {
-    const { chosen } = props;
+    const { posterURL, title, weekdayAndHour } = props;
     return (
         <>
             <div className="distanceFooter"></div>
             <div className="footer">
                 <div className="poster">
-                    <img src={chosen.posterURL} alt=""></img>
+                    <img src={posterURL} alt=""></img>
                 </div>
                 <div className="chosenInfo">
-                    <p>{chosen.movieTitle}</p>
-                    <p>{chosen.weekdayAndDate}</p>
+                    <p>{title}</p>
+                    <p>{weekdayAndHour}</p>
                 </div>
             </div>
         </>

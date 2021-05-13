@@ -2,6 +2,7 @@ body {
     background-color: #fff;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
+    letter-spacing: 0.04em;
 }
 
 button {
@@ -11,6 +12,7 @@ button {
     color: #fff;
     border: none;
     border-radius: 3px;
+    letter-spacing: 0.04em;
 }
 
 .title {

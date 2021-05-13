@@ -25,10 +25,14 @@ export default function MovieScreen(props) {
                 `Erro ao carregar filmes! Status: ${response.response.status}`
             );
         });
-    }, []);
+    }, [movieID]);
 
-    function setChosenDate(date) {
-        const newChosenData = { ...chosen, weekdayAndDate: date };
+    function setChosenDate(weekday, time) {
+        const newChosenData = {
+            ...chosen,
+            sessionDate: weekday,
+            sessionHour: time,
+        };
         setChosen(newChosenData);
     }
 
@@ -50,11 +54,15 @@ export default function MovieScreen(props) {
                         <div>
                             {session.showtimes.map((showtime) => {
                                 return (
-                                    <Link key={showtime.id} to="/sessao/">
+                                    <Link
+                                        key={showtime.id}
+                                        to={`/sessao/${showtime.id}`}
+                                    >
                                         <button
                                             onClick={() =>
                                                 setChosenDate(
-                                                    `${session.weekday} - ${session.date}`
+                                                    session.weekday,
+                                                    showtime.name
                                                 )
                                             }
                                         >
@@ -67,7 +75,11 @@ export default function MovieScreen(props) {
                     </div>
                 );
             })}
-            <Footer chosen={chosen} />
+            <Footer
+                posterURL={sessions.posterURL}
+                title={sessions.title}
+                weekdayAndHour=""
+            />
         </>
     );
 }

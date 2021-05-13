@@ -1,8 +1,24 @@
+.sessionScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sessionScreen .title {
+    height: 90px;
+    padding-top: 20px;
+}
+
+.sessionScreen button {
+    margin-top: 50px;
+}
+
 .seatOptions {
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
-    width: 374px;
+    width: 380px;
+    flex-wrap: wrap;
 }
 
 .seat {
@@ -12,6 +28,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 3.5px 18px 3.5px;
+    font-size: 11px;
+}
+
+.colorLabels {
+    display: flex;
+    width: 280px;
+    justify-content: space-around;
+}
+
+.colorLabels div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorLabels .seat {
+    margin-bottom: 8px;
+}
+
+.colorLabels p {
+    font-size: 13px;
 }
 
 .available {
@@ -27,4 +66,36 @@
 .selected {
     background: #8dd7cf;
     border: 1px solid #1aae9e;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 41px;
+}
+
+.inputs input {
+    width: 327px;
+    height: 51px;
+    background: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    padding-left: 18px;
+    font-size: 18px;
+}
+
+.inputs input::placeholder {
+    font-style: italic;
+    color: #afafaf;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.input p {
+    font-size: 18px;
+    margin-bottom: 3px;
 }

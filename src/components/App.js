@@ -8,9 +8,12 @@ import SuccessScreen from "./SuccessScreen/SuccessScreen";
 
 export default function App() {
     const [chosen, setChosen] = useState({
-        posterURL: "",
         movieTitle: "",
-        weekdayAndDate: "",
+        sessionDate: "",
+        sessionHour: "",
+        sessionSeats: "",
+        buyerName: "",
+        buyerCPF: "",
     });
 
     return (
@@ -18,16 +21,16 @@ export default function App() {
             <Header />
             <Switch>
                 <Route path="/" exact>
-                    <HomeScreen setChosen={setChosen} />
+                    <HomeScreen chosen={chosen} setChosen={setChosen} />
                 </Route>
                 <Route path="/filme/:movieID" exact>
                     <MovieScreen chosen={chosen} setChosen={setChosen} />
                 </Route>
-                <Route path="/sessao/" exact>
-                    <SessionScreen chosen={chosen} />
+                <Route path="/sessao/:sessionID" exact>
+                    <SessionScreen chosen={chosen} setChosen={setChosen} />
                 </Route>
                 <Route path="/sucesso" exact>
-                    <SuccessScreen />
+                    <SuccessScreen chosen={chosen} />
                 </Route>
             </Switch>
         </BrowserRouter>
