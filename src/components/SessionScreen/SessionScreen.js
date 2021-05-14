@@ -1,16 +1,19 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 import axios from "axios";
 
 import "./styles.css";
 import SessionSeat from "../SessionSeat/SessionSeat";
 import Footer from "../Footer/Footer";
+import Inputs from "../Inputs/Inputs";
 
 export default function SessionScreen(props) {
     const history = useHistory();
     const { chosen, setChosen } = props;
     const { sessionID } = useParams();
     const [seats, setSeats] = useState(null);
+    const [seatsInfo, setSeatsInfo] = useState([]);
     const [nameInput, setNameInput] = useState("");
     const [cpfInput, setCpfInput] = useState("");
     const [selectedSeats, setSelectedSeats] = useState({
@@ -49,9 +52,9 @@ export default function SessionScreen(props) {
 
         const postableObject = {
             ids: selectedSeats.ids,
-            name: nameInput,
-            cpf: cpfInput,
+            compradores: seatsInfo,
         };
+
         const request = axios.post(
             `https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many`,
             postableObject
@@ -91,6 +94,8 @@ export default function SessionScreen(props) {
                         seat={seat}
                         selectedSeats={selectedSeats}
                         setSelectedSeats={setSelectedSeats}
+                        seatsInfo={seatsInfo}
+                        setSeatsInfo={setSeatsInfo}
                     />
                 ))}
             </div>
@@ -108,24 +113,35 @@ export default function SessionScreen(props) {
                     <p>Indisponível</p>
                 </div>
             </div>
-            <div className="inputs">
-                <div className="input">
+            <SeatInputs>
+                <Input>
                     <p>Nome do comprador:</p>
                     <input
                         placeholder="Digite seu nome"
                         value={nameInput}
                         onChange={(event) => setNameInput(event.target.value)}
                     ></input>
-                </div>
-                <div className="input">
+                </Input>
+                <Input>
                     <p>CPF do comprador</p>
                     <input
                         placeholder="Digite seu CPF"
                         value={cpfInput}
                         onChange={(event) => setCpfInput(event.target.value)}
                     ></input>
-                </div>
-            </div>
+                </Input>
+            </SeatInputs>
+            {selectedSeats.ids.length === 0
+                ? null
+                : selectedSeats.ids.map((seatId, index) => (
+                      <Inputs
+                          key={seatId}
+                          id={seatId}
+                          index={index}
+                          seatsInfo={seatsInfo}
+                          setSeatsInfo={setSeatsInfo}
+                      />
+                  ))}
             <button onClick={sendBuyerInfo}>Reservar assento(s)</button>
             <Footer
                 posterURL={seats.movie.posterURL}
@@ -135,3 +151,35 @@ export default function SessionScreen(props) {
         </div>
     );
 }
+
+const SeatInputs = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 41px;
+
+    input {
+        width: 327px;
+        height: 51px;
+        background: #ffffff;
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+        padding-left: 18px;
+        font-size: 18px;
+    }
+
+    input::placeholder {
+        font-style: italic;
+        color: #afafaf;
+    }
+`;
+
+const Input = styled.div`
+    margin-bottom: 10px;
+
+    p {
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+`;

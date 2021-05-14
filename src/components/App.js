@@ -15,12 +15,11 @@ export default function App() {
         sessionSeats: "",
         buyerName: "",
         buyerCPF: "",
-        goBackButton: false,
     });
 
     return (
         <BrowserRouter>
-            <Header chosen={chosen} setChosen={setChosen} />
+            <Header />
             <Switch>
                 <Scrollable>
                     <Route path="/" exact>

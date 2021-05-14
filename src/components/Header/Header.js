@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { ArrowBackCircleOutline } from "react-ionicons";
 
 import "./styles.css";
 
-export default function Header(props) {
-    const { chosen } = props;
+export default function Header() {
     const history = useHistory();
+    const location = useLocation();
 
     return (
         <>
-            <GoBackButton goBackButton={chosen.goBackButton}>
+            <GoBackButton location={location}>
                 <ArrowBackCircleOutline
                     color={"#e8833a"}
                     height="50px"
@@ -28,7 +28,7 @@ export default function Header(props) {
 
 const GoBackButton = styled.div`
     position: absolute;
-    display: ${(props) => (props.goBackButton ? "block" : "none")};
+    display: ${(props) => (props.location.pathname !== "/" ? "block" : "none")};
     top: 8px;
     left: 12px;
     z-index: 3;

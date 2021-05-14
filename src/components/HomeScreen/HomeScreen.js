@@ -14,7 +14,6 @@ export default function HomeScreen(props) {
         );
 
         request.then((response) => {
-            setChosen({ ...chosen, goBackButton: false });
             setMovies(response.data);
         });
 
@@ -23,13 +22,12 @@ export default function HomeScreen(props) {
                 `Erro ao carregar filmes! Status: ${response.response.status}`
             );
         });
-    }, []);
+    }, [chosen, setChosen]);
 
     function setChosenMovie(movie) {
         const newChosenData = {
             ...chosen,
             movieTitle: movie.title,
-            goBackButton: true,
         };
         setChosen(newChosenData);
     }
