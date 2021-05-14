@@ -10,7 +10,8 @@
 }
 
 .sessionScreen button {
-    margin-top: 50px;
+    margin: 50px 0 30px 0;
+    width: 225px;
 }
 
 .seatOptions {

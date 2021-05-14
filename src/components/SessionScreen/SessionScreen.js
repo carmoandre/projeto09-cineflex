@@ -7,9 +7,9 @@ import SessionSeat from "../SessionSeat/SessionSeat";
 import Footer from "../Footer/Footer";
 
 export default function SessionScreen(props) {
+    const history = useHistory();
     const { chosen, setChosen } = props;
     const { sessionID } = useParams();
-    const history = useHistory();
     const [seats, setSeats] = useState(null);
     const [nameInput, setNameInput] = useState("");
     const [cpfInput, setCpfInput] = useState("");
@@ -42,7 +42,7 @@ export default function SessionScreen(props) {
             cpfInput === ""
         ) {
             alert(
-                "Por favor verifique se existem assenstos selecioandos e se suas informações estão corretas."
+                "Por favor verifique se existem assentos selecioandos e se suas informações estão corretas."
             );
             return;
         }

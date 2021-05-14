@@ -14,6 +14,7 @@ export default function HomeScreen(props) {
         );
 
         request.then((response) => {
+            setChosen({ ...chosen, goBackButton: false });
             setMovies(response.data);
         });
 
@@ -25,7 +26,11 @@ export default function HomeScreen(props) {
     }, []);
 
     function setChosenMovie(movie) {
-        const newChosenData = { ...chosen, movieTitle: movie.title };
+        const newChosenData = {
+            ...chosen,
+            movieTitle: movie.title,
+            goBackButton: true,
+        };
         setChosen(newChosenData);
     }
 
